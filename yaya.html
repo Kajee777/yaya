@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sorry...</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: #f6f3ee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #292929;
+}
+
+/* Background decoration */
+.dot {
+    position: fixed;
+    width: 7px;
+    height: 7px;
+    background: #d8cfc3;
+    border-radius: 50%;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* CARD */
+.card {
+    width: 90%;
+    max-width: 420px;
+    padding: 35px 28px;
+    background: #fffdf9;
+    border: 2px solid #292929;
+    border-radius: 28px;
+    box-shadow: 8px 8px 0 #292929;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+    animation: masuk .7s ease;
+}
+
+@keyframes masuk {
+    from {
+        opacity: 0;
+        transform: translateY(30px) rotate(-2deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+    }
+}
+
+/* Cute face */
+.face {
+    font-size: 65px;
+    display: inline-block;
+    animation: goyang 2s ease-in-out infinite;
+}
+
+@keyframes goyang {
+    0%, 100% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+h1 {
+    margin: 15px 0 8px;
+    font-size: 30px;
+}
+
+.subtitle {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.message {
+    background: #f1eee8;
+    padding: 18px;
+    border-radius: 18px;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* BUTTON AREA */
+.buttons {
+    position: relative;
+    height: 90px;
+    margin-top: 22px;
+}
+
+/* IYA */
+#iya {
+    position: absolute;
+    left: 20%;
+    top: 20px;
+
+    padding: 13px 25px;
+    border: 2px solid #292929;
+    border-radius: 15px;
+
+    background: #b8e0c2;
+    color: #292929;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 4px 4px 0 #292929;
+    transition: .15s;
+}
+
+#iya:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #292929;
+}
+
+/* TIDAK */
+#tidak {
+    position: absolute;
+    left: 55%;
+    top: 20px;
+
+    padding: 13px 23px;
+    border: 2px solid #292929;
+    border-radius: 15px;
+
+    background: #ffffff;
+    color: #292929;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 4px 4px 0 #292929;
+    transition: .15s;
+}
+
+/* Pesan akhir */
+#pesan {
+    display: none;
+    margin-top: 15px;
+    padding: 18px;
+
+    background: #b8e0c2;
+    border: 2px solid #292929;
+    border-radius: 18px;
+
+    animation: muncul .5s ease;
+}
+
+@keyframes muncul {
+    from {
+        opacity: 0;
+        transform: scale(.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Sparkle kecil */
+.sparkle {
+    position: fixed;
+    font-size: 18px;
+    pointer-events: none;
+    animation: sparkle 2.5s ease forwards;
+}
+
+@keyframes sparkle {
+    0% {
+        opacity: 0;
+        transform: scale(.5) translateY(20px);
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.2) translateY(-80px);
+    }
+}
+
+/* Mobile */
+@media (max-width: 400px) {
+    .card {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Dekorasi -->
+<div class="dot" style="left:10%;top:20%;"></div>
+<div class="dot" style="left:85%;top:15%;"></div>
+<div class="dot" style="left:15%;top:80%;"></div>
+<div class="dot" style="left:90%;top:75%;"></div>
+
+<div class="card">
+
+    <div class="face">🥺</div>
+
+    <h1>Maafin aku?</h1>
+
+    <div class="subtitle">
+        iya, ini memang agak awkward.
+    </div>
+
+    <div class="message">
+        Aku sadar aku salah dan aku minta maaf.
+        <br>
+        Aku nggak mau bikin kamu kesel lagi.
+        <br><br>
+        Jadi...
+        <b>maafin aku?</b>
+    </div>
+
+    <div class="buttons">
+
+        <button id="iya" onclick="maafin()">
+            Iya
+        </button>
+
+        <button id="tidak">
+            Tidak
+        </button>
+
+    </div>
+
+    <div id="pesan">
+        <b>Oke, makasih.</b> 🥹
+        <br><br>
+        Maaffin aku ya sayang buat belakangan ini aku bikin hari
+        kamu berat banget maaffin aku ya sayang eumm maaf ya
+        sayang aku janji tida begitu lagi aku emang banya salahnya 
+        maaff yaa sayang pliss🥺
+    </div>
+
+</div>
+
+<script>
+
+const tidak = document.getElementById("tidak");
+
+/* Tombol TIDAK kabur */
+function kabur() {
+
+    const padding = 15;
+
+    const maxX =
+        window.innerWidth - tidak.offsetWidth - padding;
+
+    const maxY =
+        window.innerHeight - tidak.offsetHeight - padding;
+
+    const x =
+        Math.random() * Math.max(maxX, padding);
+
+    const y =
+        Math.random() * Math.max(maxY, padding);
+
+    tidak.style.position = "fixed";
+    tidak.style.left = x + "px";
+    tidak.style.top = y + "px";
+
+    const teks = [
+        "Tidak",
+        "Eits",
+        "Nope",
+        "Coba lagi",
+        "Nggak bisa",
+        "Salah tombol",
+        "Hehe",
+        "Kabur"
+    ];
+
+    tidak.textContent =
+        teks[Math.floor(Math.random() * teks.length)];
+}
+
+/* HP */
+tidak.addEventListener("touchstart", function(e) {
+    e.preventDefault();
+    kabur();
+});
+
+/* PC */
+tidak.addEventListener("mouseenter", kabur);
+
+/* Klik */
+tidak.addEventListener("click", kabur);
+
+
+/* TOMBOL IYA */
+function maafin() {
+
+    document.getElementById("pesan").style.display = "block";
+
+    tidak.style.display = "none";
+
+    document.getElementById("iya").textContent =
+        "Makasih :)";
+
+    /* Sparkle */
+    for (let i = 0; i < 25; i++) {
+
+        setTimeout(() => {
+
+            const s = document.createElement("div");
+
+            s.className = "sparkle";
+
+            s.textContent =
+                ["✦", "✧", "·", "♡"]
+                [Math.floor(Math.random() * 4)];
+
+            s.style.left =
+                Math.random() * 100 + "vw";
+
+            s.style.top =
+                Math.random() * 100 + "vh";
+
+            document.body.appendChild(s);
+
+            setTimeout(() => {
+                s.remove();
+            }, 2500);
+
+        }, i * 70);
+    }
+}
+
+</script>
+
+</body>
+</html>
